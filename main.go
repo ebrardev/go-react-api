@@ -1,18 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/gofiber/fiber/v2"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
-	// define a variable
-	var myName string = "John Doe"
-
-	// define a constant
-	const mySecondName string = "Jane Doe"
-	// shorthand
-	myThirdName := "Bob Doe"
-
-	fmt.Println(myName)
-	fmt.Println(mySecondName)
-	fmt.Println(myThirdName)
+	app := fiber.New()
+	log.Fatal(app.Listen(":4000"))
 }
