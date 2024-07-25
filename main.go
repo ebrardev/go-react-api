@@ -28,14 +28,23 @@ func main() {
 	}
 
 	MONGODB_URI := os.Getenv("MONGO_URI")
+	if MONGODB_URI == "" {
+		log.Fatal("MONGO_URI environment variable not set")
+	}
+
 	clientOptions := options.Client().ApplyURI(MONGODB_URI)
 	client, err := mongo.Connect(context.Background(), clientOptions)
-
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	err = client.Ping(context.Background(), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("Connected to MongoDB!")
+
+	// Initialize the collection variable
+	collection = client.Database("your_database_name").Collection("your_collection_name")
+	fmt.Println("Collection instance created!")
 }
