@@ -1,5 +1,6 @@
-import { Button, Container, Stack } from "@chakra-ui/react"
+import {  Container, Stack } from "@chakra-ui/react"
 import Navbar from "./components/Navbar"
+import TodoForm from "./components/TodoForm"
 
 
 function App() {
@@ -9,8 +10,8 @@ function App() {
     <Stack h="100vh">
      <Navbar />
      <Container>
-      {/* <TodoForm />
-      <TodoList /> */}
+       <TodoForm />
+      {/* <TodoList />  */}
      </Container>
     </Stack>
   )
