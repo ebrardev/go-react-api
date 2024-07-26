@@ -1,11 +1,9 @@
-root="."
-tmp_dir="tmp"
+root = "." # Projenin kök dizini
+tmp_dir = "tmp" # Air'ın geçici dosyaları saklayacağı geçici dizin
 
-
-[build]
-bin ="main"
-cmd= "go build -o {{.Output}} {{.Input}}"
-exclude=["tmp/*","client/*"]
-
-include=["**/*.go"]
-ignore = ["tmp/*"]
+[build] # Derleme yapılandırması
+  bin = "main" # Derlendikten sonra oluşturulacak ikili dosyanın adı
+  cmd = "go build -o {{.Output}} {{.Input}}" # Projeyi derleme komutu
+  exclude = ["tmp/*", "client/**/node_modules/**", "client/dist/*"] # İzleme dışı bırakılacak dizinler
+  include = ["**/*.go"] # İzleme için dahil edilecek dosya kalıpları
+  ignore = ["tmp/*"] # Derleme tetiklenmesi için göz ardı edilecek dosya veya dizinler
