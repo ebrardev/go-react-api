@@ -70,7 +70,9 @@ func main() {
 	if port == "" {
 		log.Fatal("Port environment variable not set")
 	}
+
 	log.Fatal(app.Listen(":" + port))
+
 }
 func getTodos(c *fiber.Ctx) error {
 	var todos []Todo
@@ -103,7 +105,7 @@ func createTodo(c *fiber.Ctx) error {
 
 	if todo.Body == "" {
 		return c.Status(400).JSON(fiber.Map{
-			"error": "Body is required",
+			"error": "Plan cannot be empty",
 		})
 	}
 
